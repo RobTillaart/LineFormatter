@@ -1,0 +1,113 @@
+//
+//    FILE: unit_test_001.cpp
+//  AUTHOR: Rob Tillaart
+//    DATE: 2020-12-30
+// PURPOSE: unit tests for the LineFormatter library
+//          https://github.com/RobTillaart/LineFormatter
+//          https://github.com/Arduino-CI/arduino_ci/blob/master/REFERENCE.md
+//
+
+// supported assertions
+// ----------------------------
+// assertEqual(expected, actual);               // a == b
+// assertNotEqual(unwanted, actual);            // a != b
+// assertComparativeEquivalent(expected, actual);    // abs(a - b) == 0 or (!(a > b) && !(a < b))
+// assertComparativeNotEquivalent(unwanted, actual); // abs(a - b) > 0  or ((a > b) || (a < b))
+// assertLess(upperBound, actual);              // a < b
+// assertMore(lowerBound, actual);              // a > b
+// assertLessOrEqual(upperBound, actual);       // a <= b
+// assertMoreOrEqual(lowerBound, actual);       // a >= b
+// assertTrue(actual);
+// assertFalse(actual);
+// assertNull(actual);
+
+// // special cases for floats
+// assertEqualFloat(expected, actual, epsilon);    // fabs(a - b) <= epsilon
+// assertNotEqualFloat(unwanted, actual, epsilon); // fabs(a - b) >= epsilon
+// assertInfinity(actual);                         // isinf(a)
+// assertNotInfinity(actual);                      // !isinf(a)
+// assertNAN(arg);                                 // isnan(a)
+// assertNotNAN(arg);                              // !isnan(a)
+
+#include <ArduinoUnitTests.h>
+
+#define assertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqualFloat", "expected", fabs(arg1 - arg2), compareLessOrEqual, "<=", "actual", arg3)
+// #define assertEqualINF(arg)  assertOp("assertEqualINF", "expected", INFINITY, compareEqual, "==", "actual", arg)
+// #define assertEqualNAN(arg)  assertOp("assertEqualNAN", "expected", true, compareEqual, "==", "actual", isnan(arg))
+
+
+#include "Arduino.h"
+#include "LineFormatter.h"
+
+
+unittest_setup()
+{
+}
+
+unittest_teardown()
+{
+}
+
+/*
+unittest(test_new_operator)
+{
+  assertEqualINF(exp(800));
+  assertEqualINF(0.0/0.0);
+  assertEqualINF(42);
+  
+  assertEqualNAN(INFINITY - INFINITY);
+  assertEqualNAN(0.0/0.0);
+  assertEqualNAN(42);
+}
+*/
+
+unittest(test_constructor)
+{
+  LineFormatter L;
+
+  assertEqual(80, L.getMaxLength());
+  L.setMaxLength(80);
+  assertEqual(80, L.getMaxLength());
+
+  assertEqual(0, L.getAutoNewLine());
+  L.setAutoNewLine(5);
+  assertEqual(5, L.getAutoNewLine());
+
+  assertEqual(1, 1);
+}
+
+
+unittest(test_position)
+{
+  LineFormatter L;
+
+  assertEqual(0, L.getPos());
+  assertEqual(20, L.gotoPos(20));
+  assertEqual(20, L.gotoPos(15));
+
+  L.repeat(10, '*');
+  assertEqual(30, L.getPos());
+  L.repeat(10, "--");
+  assertEqual(50, L.getPos());
+}
+
+unittest(test_tab)
+{
+  LineFormatter L;
+
+  for (int i = 8; i <= 80; i += 8)
+  {
+    L.addTab(i);
+  }
+  assertEqual(10, L.getTabCount());
+  
+  for (int i = 0; i < L.getTabCount(); i++)
+  {
+    assertEqual(8 + i*8, L.getTabStop(i));
+  }
+}
+
+
+unittest_main()
+
+// --------
