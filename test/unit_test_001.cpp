@@ -110,7 +110,7 @@ unittest(test_tab)
   {
     fprintf(stderr, "%d\t", 8 + i*8);  // tabpos
     L.write('\t');
-    assertEqual(8 + i*8, (int)L.getPos() -1 );  // current pos is just before 
+    assertEqual(8 + i*8, (int)L.getPos() + 1 );  // current pos is just before 
   }
 
 }
