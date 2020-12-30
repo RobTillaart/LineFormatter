@@ -105,14 +105,12 @@ unittest(test_tab)
     assertEqual(8 + i*8, L.getTabStop(i));
   }
 
-  fprintf(stderr, "tab test\n");
+  fprintf(stderr, "tab test - !! cur pos is one before tab pos\n");
   for (int i = 0; i < L.getTabCount(); i++)
   {
-    fprintf(stderr, "%d\t", 8 + i*8);
-    fprintf(stderr, "%d\t", (int)L.getPos());
+    fprintf(stderr, "%d\t", 8 + i*8);  // tabpos
     L.write('\t');
-    fprintf(stderr, "%d\t", (int)L.getPos());
-    assertEqual(8 + i*8, (int)L.getPos());
+    assertEqual(8 + i*8, (int)L.getPos() -1 );  // current pos is just before 
   }
 
 }
