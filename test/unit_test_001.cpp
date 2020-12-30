@@ -72,8 +72,6 @@ unittest(test_constructor)
   assertEqual(0, L.getAutoNewLine());
   L.setAutoNewLine(5);
   assertEqual(5, L.getAutoNewLine());
-
-  assertEqual(1, 1);
 }
 
 
@@ -81,14 +79,14 @@ unittest(test_position)
 {
   LineFormatter L;
 
-  assertEqual(0, L.getPos());
-  assertEqual(20, L.gotoPos(20));
-  assertEqual(20, L.gotoPos(15));
+  assertEqual(0, (int)L.getPos());
+  assertEqual(20, (int)L.gotoPos(20));
+  assertEqual(20, (int)L.gotoPos(15));
 
   L.repeat(10, '*');
-  assertEqual(30, L.getPos());
+  assertEqual(30, (int)L.getPos());
   L.repeat(10, "--");
-  assertEqual(50, L.getPos());
+  assertEqual(50, (int)L.getPos());
 }
 
 unittest(test_tab)
@@ -111,10 +109,10 @@ unittest(test_tab)
   for (int i = 0; i < L.getTabCount(); i++)
   {
     fprintf(stderr, "%d\t", 8 + i*8);
-    fprintf(stderr, "%d\t", L.getPos());
+    fprintf(stderr, "%d\t", (int)L.getPos());
     L.write('\t');
-    fprintf(stderr, "%d\t", L.getPos());
-    assertEqual(8 + i*8, L.getPos());
+    fprintf(stderr, "%d\t", (int)L.getPos());
+    assertEqual(8 + i*8, (int)L.getPos());
   }
 
 }
