@@ -65,7 +65,7 @@ unittest(test_constructor)
 {
   LineFormatter L;
 
-  assertEqual(80, L.getMaxLength());
+  assertEqual(0, L.getMaxLength());
   L.setMaxLength(80);
   assertEqual(80, L.getMaxLength());
 
@@ -95,16 +95,26 @@ unittest(test_tab)
 {
   LineFormatter L;
 
+  fprintf(stderr, "tab setting\n");
   for (int i = 8; i <= 80; i += 8)
   {
     L.addTab(i);
   }
   assertEqual(10, L.getTabCount());
-  
   for (int i = 0; i < L.getTabCount(); i++)
   {
+    fprintf(stderr, "%d\t", 8 + i*8);
     assertEqual(8 + i*8, L.getTabStop(i));
   }
+
+  fprintf(stderr, "tab test\n");
+  for (int i = 0; i < L.getTabCount(); i++)
+  {
+    fprintf(stderr, "%d\t", 8 + i*8);
+    L.write('\t');
+    assertEqual(8 + i*8, L.getPos());
+  }
+
 }
 
 
