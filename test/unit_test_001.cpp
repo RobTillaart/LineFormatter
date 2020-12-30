@@ -111,7 +111,9 @@ unittest(test_tab)
   for (int i = 0; i < L.getTabCount(); i++)
   {
     fprintf(stderr, "%d\t", 8 + i*8);
+    fprintf(stderr, "%d\t", L.getPos());
     L.write('\t');
+    fprintf(stderr, "%d\t", L.getPos());
     assertEqual(8 + i*8, L.getPos());
   }
 
