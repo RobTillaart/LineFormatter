@@ -36,7 +36,7 @@ public:
 
   // n = 0 switches autoNewLine off
   void      setAutoNewLine(uint8_t n);
-  void      getAutoNewLine() { return _autoNewLine; };
+  uint8_t   getAutoNewLine() { return _autoNewLine; };
 
   // Add a tab at (absolute/relative) position
   // returns true on success
