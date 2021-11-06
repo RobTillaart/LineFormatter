@@ -64,7 +64,7 @@ unittest(test_constructor)
 
 unittest(test_position)
 {
-  LineFormatter L;
+  LineFormatter Line;
 
   assertEqual(0, (int)Line.getPos());
   assertEqual(20, (int)Line.gotoPos(20));
@@ -79,7 +79,7 @@ unittest(test_position)
 
 unittest(test_tab)
 {
-  LineFormatter L;
+  LineFormatter Line;
 
   fprintf(stderr, "tab setting\n");
   for (int i = 8; i <= 80; i += 8)
