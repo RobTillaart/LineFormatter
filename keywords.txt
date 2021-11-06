@@ -5,6 +5,7 @@ LineFormatter	KEYWORD1
 
 
 # Methods and Functions (KEYWORD2)
+reset	KEYWORD2
 write	KEYWORD2
 setMaxLength	KEYWORD2
 gotoPos	KEYWORD2

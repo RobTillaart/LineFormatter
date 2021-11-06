@@ -1,7 +1,7 @@
 //
 //    FILE: LineFormatter.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.2
+// VERSION: 0.1.3
 // PURPOSE: Simple positioning wrapper class for Serial
 //    DATE: 2020-05-14
 //     URL: https://github.com/RobTillaart/LineFormatter
@@ -10,6 +10,9 @@
 //  0.1.0   2020-05-14  initial version
 //  0.1.1   2020-06-19  fix library.json
 //  0.1.2   2020-12-30  Arduino-ci + unit tests
+//  0.1.3   2021-11-06  update Arduino-CI, badges
+//                      update readme.md, add reset();
+//
 
 
 #include "LineFormatter.h"
@@ -18,14 +21,19 @@
 LineFormatter::LineFormatter(Print* stream)
 {
   _stream      = stream;
-  // reset
+  reset();
+};
+
+
+void LineFormatter::reset()
+{
   _pos         = 0;
   _maxPos      = 0;
   _lineCount   = 0;
   _anl         = 0;
   _autoNewLine = 0;
   _tabCount    = 0;
-};
+}
 
 
 ///////////////////////////////////////////

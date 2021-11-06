@@ -2,7 +2,7 @@
 //
 //    FILE: LineFormatter.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.2
+// VERSION: 0.1.3
 // PURPOSE: Simple positioning wrapper class for Serial / Stream
 //    DATE: 2020-05-14
 //     URL: https://github.com/RobTillaart/LineFormatter
@@ -15,13 +15,14 @@
 #define MAX_TAB_STOPS 12
 #endif
 
-#define LINEFORMATTER_LIB_VERSION           (F("0.1.2"))
+#define LINEFORMATTER_LIB_VERSION           (F("0.1.3"))
 
 
 class LineFormatter: public Print
 {
 public:
   LineFormatter(Print* stream = &Serial);
+  void      reset();
 
   size_t    write(uint8_t c);
 
