@@ -3,7 +3,7 @@
 //    FILE: LineFormatter.h
 //  AUTHOR: Rob Tillaart
 // VERSION: 0.1.2
-// PURPOSE: Simpe positioning wrapper class for Serial
+// PURPOSE: Simple positioning wrapper class for Serial / Stream
 //    DATE: 2020-05-14
 //     URL: https://github.com/RobTillaart/LineFormatter
 //
@@ -14,6 +14,9 @@
 #ifndef MAX_TAB_STOPS
 #define MAX_TAB_STOPS 12
 #endif
+
+#define LINEFORMATTER_LIB_VERSION           (F("0.1.2"))
+
 
 class LineFormatter: public Print
 {
