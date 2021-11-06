@@ -48,6 +48,8 @@ Note: the maximum value is 255.
 ## Interface
 
 - **LineFormatter(Print\* stream = &Serial)** constructor
+- **reset()** reset internal variables to start over again.
+
 
 #### Printing
 
@@ -68,7 +70,7 @@ Note: the maximum value is 255.
 #### Line configuration
 
 - **void setMaxLength(uint8_t maxPos)** set the maximum line length - bold cut off
-- **uint8_t getMaxLength()**
+- **uint8_t getMaxLength()** return max line length set.
 - **void setAutoNewLine(uint8_t n)** n = 0 switches autoNewLine off
 - **uint8_t getAutoNewLine()** returns number of newlines.
 
