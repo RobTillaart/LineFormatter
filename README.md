@@ -22,7 +22,7 @@ for absolute positions and **andRelTab(n)** for relative positions.
 
 Absolute tab positions must be added in increasing order as the class does not
 check the input. Also adding same value twice is not checked for. The maximum
-number of tabs is defined by **MAX_TAB_STOPS** == 10 default. This value canbe
+number of tabs is defined by **MAX_TAB_STOPS** == 12 default. This value can be
 overruled by -D compile flag or edited in the LineFormatter.h file.
 
 Tab positions can be cleared by **clearTabs()**. This removes all tabs in one call.
