@@ -206,7 +206,7 @@ void LineFormatter::tab(uint8_t n)
 
 ///////////////////////////////////////////
 //
-//  DEBUGGING
+//  MISCELLANEOUS
 //
 uint8_t LineFormatter::getPos()
 {

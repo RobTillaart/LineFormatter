@@ -64,7 +64,7 @@ public:
   void      tab(uint8_t n = 1);
 
 
-  //  DEBUGGING
+  //  MISCELLANEOUS
   uint8_t   getPos();
   void      resetLineCount();
   uint32_t  getLineCount();

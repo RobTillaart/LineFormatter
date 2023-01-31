@@ -35,22 +35,22 @@ This makes it easier to count the lines in a table, e.g after every 10 lines.
 Setting **n** to 0 disables this function.
 
 The function **gotoPos(pos)** prints spaces until the cursor is on position **pos**.
-If the current pos is beyond **pos**, it does nothing (check the returned position!).
+If the current position is beyond **pos**, it does nothing (check the returned position!).
 Besides for tabular data, this function can be used to make simple text based 
-graphs, e.g. a histogram (see examples).
+graphs, e.g. a sine wave.
 
-The function **repeat(n, s, nl)** which repeats a certain character or a string n times.
+The function **repeat(n, s, nl)** which repeats a character or a string n times.
 This is followed by **nl** newlines which is zero by default.
 **repeat()** is useful to make separator lines or to print several newlines at once.
 A simple histogram is easy to make.
 
 The function **setMaxLength(n)** to cut off (brute force, no intelligence) lines 
 after n characters by injecting an extra newline. This prevents scrolling hundreds
-of positions to the right e.g. when copying a file from disk to Serial. 
+of positions to the right. 
 Setting the value to 0 results in no maximum line length.
 
 Note: the maximum line length is 255 as all internal positions are 8 bit.
-A 16 bit lineFormatter is planned for future (on request)
+A 16 bit lineFormatter is planned for future (on request).
 
 
 ## Interface
@@ -63,7 +63,7 @@ A 16 bit lineFormatter is planned for future (on request)
 
 - **LineFormatter(Print\* stream = &Serial)** constructor.
 Connects to a stream, default Serial.
-- **reset()** reset internal variables to restart from default again..
+- **reset()** reset internal variables to restart from default again.
 
 
 #### Printing
@@ -91,10 +91,10 @@ Returns true on success.
 - **bool removeTab(uint8_t pos)** remove a tab at given position.
 Returns true if a tab exists at the position **pos**.
 Returns false if no tab existed.
-- **void tab(uint8_t n = 1)** print zero or more tabs, similar as e.g. "\t\t\t"
+- **void tab(uint8_t n = 1)** print zero or more tabs, similar as e.g. "\t\t\t".
 
 Note: 
-Removing a tab is non-reversible, so one cannot insert a removed tab stop again.
+Removing a tab is non-reversible (for now), so one cannot insert a removed tab stop again.
 Also replacing a tab can only be done by clear all the tabs and reinsert the new ones.
 
 
@@ -102,22 +102,23 @@ Also replacing a tab can only be done by clear all the tabs and reinsert the new
 
 - **void setMaxLength(uint8_t maxPos)** set the maximum line length - bold cut off.
 Will be disabled when set to 0.
-Note: max line length == 255
+Note: maximum line length == 255.
 - **uint8_t getMaxLength()** return max line length set.
 - **void setAutoNewLine(uint8_t n = 1)** n = 0 switches autoNewLine off.
-- **uint8_t getAutoNewLine()** returns number of newlines.
+- **uint8_t getAutoNewLine()** returns number of newlines set before.
 
 
-#### Debugging
+#### Miscellaneous
 
-For debugging purposes there are the following functions:
+For debugging and other purposes there are the following functions:
 
 - **uint8_t getPos()** returns current position.
 - **void resetLineCount()** sets internal lineCounter to zero.
-- **uint16_t getLineCount()** returns current line number (since last reset).
+- **uint32_t getLineCount()** returns current line number (since last reset).
 - **uint8_t getTabCount()** get the number of tab positions.
-- **uint8_t getTabStop(uint8_t n)** returns the n-th tab position.
-- **void printRuler(uint8_t length)** prints a dotted line with 5 and 10 markers, and # for tab positions.
+- **uint8_t getTabStop(uint8_t n)** returns the position of the n-th tab.
+- **void printRuler(uint8_t length)** prints a dotted line with 5 and 10 markers, 
+and # for tab positions.
 Line is length long.
 
 
@@ -125,6 +126,7 @@ Line is length long.
 
 #### Must
 
+- redo documentation misc/debug part
 
 #### Should
 
