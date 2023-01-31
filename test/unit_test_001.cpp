@@ -90,7 +90,7 @@ unittest(test_tab)
   for (int i = 0; i < Line.getTabCount(); i++)
   {
     fprintf(stderr, "%d\t", 8 + i*8);
-    assertEqual(8 + i*8, Line.getTabStop(i));
+    assertEqual(8 + i*8, (int)Line.getTabStop(i));
   }
 
   fprintf(stderr, "tab test - !! cur position is one before tab position\n");
@@ -117,7 +117,7 @@ unittest(test_removeTab)
   for (int i = 0; i < Line.getTabCount(); i++)
   {
     fprintf(stderr, "%d\t", 8 + i*8);
-    assertEqual(8 + i*8, Line.getTabStop(i));
+    assertEqual(8 + i*8, (int)Line.getTabStop(i));
   }
 
   fprintf(stderr, "remove tabs\n");
@@ -128,8 +128,8 @@ unittest(test_removeTab)
   assertEqual(5, Line.getTabCount());
   for (int i = 0; i < Line.getTabCount(); i++)
   {
-    fprintf(stderr, "%d\t", 8 + i*16);
-    assertEqual(8 + i*16, Line.getTabStop(i));
+    fprintf(stderr, "%d\t", 16 + i*16);
+    assertEqual(16 + i*16, (int)Line.getTabStop(i));
   }
 
 }
