@@ -141,15 +141,15 @@ unittest(test_existTab)
 
   for (int i = 8; i <= 80; i += 8)
   {
-    assertFalse(existTab(i));
+    assertFalse(Line.existTab(i));
     Line.addTab(i);
-    assertTrue(existTab(i));
+    assertTrue(Line.existTab(i));
   }
   L.clearTabs();
 
   for (int i = 8; i <= 80; i += 8)
   {
-    assertFalse(existTab(i));
+    assertFalse(Line.existTab(i));
   }
 }
 
