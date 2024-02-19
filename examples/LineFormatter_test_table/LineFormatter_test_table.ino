@@ -13,7 +13,10 @@ LineFormatter L;
 void setup()
 {
   Serial.begin(115200);
+  L.println();
   L.println(__FILE__);
+  L.print("LINEFORMATTER_LIB_VERSION: ");
+  L.println(LINEFORMATTER_LIB_VERSION);
   L.repeat(3, '\n');
 
   test_table_1();
@@ -90,7 +93,7 @@ void test_table_1()
     if (i == 10)
     {
       L.println("switch to normal tab behaviour");
-      L.clearTabs();   // just to show diff
+      L.clearTabs();   //  just to show diff
     }
 
     L.tab();
@@ -136,13 +139,13 @@ void test_table_2()
   L.addRelTab(10);
   L.addRelTab(6);
   L.addRelTab(6);
-  // L.println(L.getTabCount());
+  //  L.println(L.getTabCount());
 
   int measurement = 1;
 
   L.println("\tIdx\tTime\tValue\tA0\tA1\tA2\tA3\tA4\tA5");
   L.repeat(8, "----+----|", 1);
-  //  L.printRuler(80);
+  //   L.printRuler(80);
 
   L.setAutoNewLine(5);
   for (int i = 0; i < 20; i++)

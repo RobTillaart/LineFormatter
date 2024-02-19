@@ -2,12 +2,11 @@
 //    FILE: LineFormatter_SDcard.ino
 //  AUTHOR: Rob Tillaart
 // PURPOSE: demo LineFormatter for SDcard
-//    DATE: 2020-05-23
 //     URL: https://github.com/RobTillaart/LineFormatter
 
 
-#include <SPI.h>
-#include <SD.h>
+#include "SPI.h"
+#include "SD.h"
 
 //  SPI     PINS UNO
 //  MOSI     11
@@ -17,13 +16,16 @@
 
 #define CS          10      //  adjust this ChipSelect line if needed !
 
-#include <LineFormatter.h>
+#include "LineFormatter.h"
 
 
 void setup()
-{
   Serial.begin(115200);
-  Serial.println(__FILE__);
+  L.println();
+  L.println(__FILE__);
+  L.print("LINEFORMATTER_LIB_VERSION: ");
+  L.println(LINEFORMATTER_LIB_VERSION);
+  L.repeat(3, '\n');
 
   //  initialize the SD card
   if (!SD.begin(CS))

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - add **bool setTabs(uint8_t \* arr, uint8_t size)** to add multiple tabs in one call.
 - add **uint8_t getTabs(uint8_t \* arr)** get the internal array in one call. Returns size.
 - update readme.md
+- update examples
 - minor edits.
 
 ----
