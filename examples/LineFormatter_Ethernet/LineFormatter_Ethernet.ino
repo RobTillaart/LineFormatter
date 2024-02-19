@@ -46,11 +46,11 @@ void HTTP_header(EthernetClient* cl, const char *contentType, bool keepAlive = f
 void setup()
 {
   Serial.begin(115200);
-  L.println();
-  L.println(__FILE__);
-  L.print("LINEFORMATTER_LIB_VERSION: ");
-  L.println(LINEFORMATTER_LIB_VERSION);
-  L.repeat(3, '\n');
+  Serial.println();
+  Serial.println(__FILE__);
+  Serial.print("LINEFORMATTER_LIB_VERSION: ");
+  Serial.println(LINEFORMATTER_LIB_VERSION);
+  Serial.println();
 
   //  Ethernet.init(pin) to configure the CS pin
   Ethernet.init(EthernetPIN);
@@ -297,4 +297,3 @@ void test_table_2(LineFormatter L)
 
 
 //  -- END OF FILE --
-
