@@ -178,7 +178,7 @@ unittest(test_setTabs_getTabs)
   assertTrue(Line.setTabs(tabs, 4));
   assertEqual(4, Line.getTabCount());
 
-  assertTrue(Line.setTabs(tabs, 3);
+  assertTrue(Line.setTabs(tabs, 3));
   assertEqual(3, Line.getTabCount());
 
   assertTrue(Line.setTabs(tabs, 5));
